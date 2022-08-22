@@ -20,8 +20,8 @@ CREATE TABLE USER(
 	user_signuptime DATETIME DEFAULT CURRENT_TIMESTAMP(),
     is_admin BOOLEAN default false,
     branch_admin INT,
-	CONSTRAINT PRIMARY KEY(user_id),
-	CONSTRAINT UNIQUE KEY(user_no),
+	CONSTRAINT PRIMARY KEY(user_no),	#no를 primary key로 변경, id는 unique key
+	CONSTRAINT UNIQUE KEY(user_id),
 	CONSTRAINT UNIQUE KEY(user_phone),
 	CONSTRAINT UNIQUE KEY(user_email)
 );
@@ -83,12 +83,9 @@ CREATE TABLE TICKET_SOLD(
     expire_date DATETIME,
     remain_days INT,
     CONSTRAINT PRIMARY KEY(sold_no),
-    FOREIGN KEY(sole_id) REFERENCES USER(user_id),
+    FOREIGN KEY(sold_id) REFERENCES USER(user_id),
     FOREIGN KEY(sold_ticket) REFERENCES TICKET(ticket_no),
     FOREIGN KEY(sold_branch) REFERENCES BRANCH(branch_no)	#BRANCH_NO 참조 추가
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-ALTER TABLE USER ADD FOREIGN KEY(user_ticket)
-REFERENCES TICKET_BUY(sold_no)
-ON UPDATE CASCADE ON DELETE CASCADE;
