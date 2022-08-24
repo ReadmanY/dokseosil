@@ -4,7 +4,7 @@ CREATE DATABASE READ_ROOM;
 
 DROP USER 'room_admin'@'localhost';
 CREATE USER 'room_admin'@'localhost' IDENTIFIED WITH mysql_native_password by 'group1';
-GRANT SELECT, INSERT, UPDATE, DELETE on SPRING_BOARD.* to 'room_admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE on READ_ROOM.* to 'room_admin'@'localhost';
 
 USE READ_ROOM;
 
