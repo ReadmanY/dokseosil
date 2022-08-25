@@ -1,5 +1,4 @@
 package com.acon.dokseo.dto;
-
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
