@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>이용권 정보</title>
+</head>
+<body>
+	<header th:insert="??????"></header>
+	<main class="container">
+		<h1 class="m-3">
+			<small th:text="${ticket.ticket_no}"></small>.
+			<span th:text="${ticket.title}"></span>
+		</h1>
+		<p th:text="${ticketPrefer}"></p>
+		<p>
+			티켓이름 :<strong th:text="${ticket.ticket_no}"></strong> 
+		</p>
+		<p>
+			가격 :<strong th:text="${ticket.ticket_price}"></strong>
+		</p>
+		<div class="mb-3 d-flex justify-content-between">
+			<div th:if="${session.loginUser?.user_id==ticket.user.user_id}">
+				<a th:href="@{/ticket/update/{no}(no=${ticket.ticket_no})}" class="btn btn-success">
+					수정
+				</a>
+			</div>
+		</div>
+	</main>
+<script>
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+</script>	
+</body>
+</html>
