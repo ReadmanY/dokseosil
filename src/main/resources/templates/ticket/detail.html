@@ -2,33 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>이용권 정보</title>
+<title>이용권 상세</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-5.2.0-dist/css/bootstrap.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/public/css/ticketConfig.css}" />
 </head>
 <body>
-	<header th:insert="??????"></header>
-	<main class="container">
+	  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary"> 이용권 종류 목록 </a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+	<main>
 		<h1 class="m-3">
-			<small th:text="${ticket.ticket_no}"></small>.
-			<span th:text="${ticket.title}"></span>
+			<span></span>
 		</h1>
-		<p th:text="${ticketPrefer}"></p>
-		<p>
-			티켓이름 :<strong th:text="${ticket.ticket_no}"></strong> 
+		<p> 이용권 no :
 		</p>
 		<p>
-			가격 :<strong th:text="${ticket.ticket_price}"></strong>
+			이용권 가격 :
 		</p>
-		<div class="mb-3 d-flex justify-content-between">
-			<div th:if="${session.loginUser?.user_id==ticket.user.user_id}">
-				<a th:href="@{/ticket/update/{no}(no=${ticket.ticket_no})}" class="btn btn-success">
-					수정
-				</a>
-			</div>
+		<p>
+			이용권 종류 :
+		</p>
+		<p>
+			이용권 기간 :
+		</p>
+		<p>
+			가맹점 이름 :
+		</p>
+		<div class="m-3">
 		</div>
+		<div class="row mb-3 g-3 align-items-center">
+				<div class="col-auto">
+					<button type="reset" class="btn btn-light">초기화</button>
+				</div>	
+				<div class="col-auto">
+					<button type="submit" class="btn btn-primary">제출</button>
+				</div>	
+
 	</main>
-<script>
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-</script>	
+	
 </body>
 </html>

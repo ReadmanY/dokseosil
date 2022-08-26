@@ -2,38 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>게시글 등록 페이지</title>
+<title>이용권 등록 페이지</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-5.2.0-dist/css/bootstrap.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/public/css/ticketConfig.css}" />
 </head>
 <body>
-	<header th:insert="????"></header>
-	<main class="container">
-	 	<h1 class="m-3">이용권 종류 추가</h1>
-		 	<form  action="/ticket/insert.do" method="post" class="row g-3 needs-validation" validate 
-	 	enctype="multipart/form-data">
-	 		<div class="mb-3 was-validated">
-			    <label for="inputId" class="form-label">작성자</label>
-			    <input name="user.user_id" class="form-control" id="inputId" placeholder="" required readonly
-			    th:value="${session.loginUser.user_id}">
-			 </div>
-	 		 <div class="mb-3 was-validated">
-			    <label for="inputTitle" class="form-label">이용권 이름</label>
-			    <input name="title" class="form-control" id="inputTitle" placeholder="타이틀을 입력하세요" required>
-			    <div class="invalid-feedback">
-			      Please enter a message in the title.
-			    </div>
-			  </div>
-			  <div class="mb-3 was-validated">
-			    <label for="inputContents" class="form-label">설명</label>
-			    <textarea name="contents" class="form-control" id="inputContents" placeholder="내용을 입력하세요" required></textarea>
-			    <div class="invalid-feedback">
-			      Please enter a message in the contents.
-			    </div>
-			  </div>
-			  <div class="col-12">
-			    <button class="btn btn-primary" type="submit">Submit form</button>
-			  </div>
-			</form>
-	 	
+		<header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary"> 이용권 목록 </a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+	<main>
+		 	<h1 class="m-3">이용권 등록 페이지</h1>
+		 			<p> 이용권 no :
+		</p>
 	</main>
 </body>
 </html>
