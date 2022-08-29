@@ -1,0 +1,58 @@
+<<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시글 리스트</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-5.2.0-dist/css/bootstrap.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/public/css/ticketConfig.css}" />
+
+</head>
+<body>
+	  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary"> 이용권 종류 목록 </a></li>
+        </ul>
+        <div class="text-end">
+  			<a href="/ticket/insert.do" class="btn btn-warning">이용권 추가 </a>
+        </div>
+      </div>
+    </div>
+  </header>
+	<main class="container">	
+		    <div class="row">
+			<hr>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2 class="fw-normal">일회권</h2>
+        <p>지정된 시간만큼 사용가능하며 퇴실 후 자동적으로 파기되는 일회권입니다.</p>
+        <p><a class="btn btn-secondary" href="/ticket/detail">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2 class="fw-normal">정액권</h2>
+        <p>충전된 시간만큼 여러번 사용가능한 정액권입니다.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2 class="fw-normal">정기권</h2>
+        <p>정해진 기간동안 시간 무제한으로 사용 가능한 정기권입니다.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+	
+	</main>
+	
+	
+</body>
+</html>
