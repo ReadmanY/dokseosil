@@ -74,6 +74,10 @@ input[type="text"], input[type="password"] {
 	width: 100%;
 }
 
+.form-bottom form .input-error {
+	border-color: #19b9e7;
+}
+
 
 button.btn {
 	height: 50px;

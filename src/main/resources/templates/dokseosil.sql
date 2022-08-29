@@ -13,16 +13,15 @@ CREATE TABLE USER(
     user_id VARCHAR(255),
 	user_name VARCHAR(255),
 	user_pw VARCHAR(255) NOT NULL,
-	user_phone VARCHAR(255) NOT NULL,
-	user_email VARCHAR(255) NOT NULL,
-	user_birth DATE, #change to can null
+    user_email VARCHAR(255) NOT NULL,
+	user_phone VARCHAR(255), 
+	user_birth DATE, 
     user_gender tinyint, #gender male=0, female=1, etc=2, nodata=null 
 	user_signuptime DATETIME DEFAULT CURRENT_TIMESTAMP(),
     is_admin BOOLEAN default false,
     branch_admin INT,
-	CONSTRAINT PRIMARY KEY(user_no),	#no를 primary key로 변경, id는 unique key
+	CONSTRAINT PRIMARY KEY(user_no),
 	CONSTRAINT UNIQUE KEY(user_id),
-	CONSTRAINT UNIQUE KEY(user_phone),
 	CONSTRAINT UNIQUE KEY(user_email)
 );
 
@@ -88,4 +87,6 @@ CREATE TABLE TICKET_SOLD(
     FOREIGN KEY(sold_branch) REFERENCES BRANCH(branch_no)	#BRANCH_NO 참조 추가
     ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+insert into user(user_id, user_pw, user_email) values("ns02442","1234", "ns02442@naver.com");
 

@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.acon.dokseo.dto.DuplicateCheckAjaxRes;
 import com.acon.dokseo.dto.User;
 import com.acon.dokseo.mapper.UserMapper;
 
@@ -35,4 +38,30 @@ public class UserController {
 	
 	@GetMapping("/signUp")
 	public void signUp() {};
+	
+	
+	
+	//-------------------Ajax--------------------
+	
+	@GetMapping("/idAjax/{userId}")
+	public @ResponseBody DuplicateCheckAjaxRes idAjax(@PathVariable String userId) {
+		DuplicateCheckAjaxRes duplicateCheckAjaxRes=new DuplicateCheckAjaxRes();
+		User user=userMapper.selectOneById(userId);
+		if(user==null) {
+			duplicateCheckAjaxRes.setCanIUse(true);
+		}
+		return duplicateCheckAjaxRes;
+	}
+	
+	@GetMapping("/emailAjax/{userEmail}")
+	public @ResponseBody DuplicateCheckAjaxRes emailAjax(@PathVariable String userEmail) {
+		DuplicateCheckAjaxRes duplicateCheckAjaxRes=new DuplicateCheckAjaxRes();
+		User user=userMapper.selectOneByEmail(userEmail);
+		if(user==null) {
+			duplicateCheckAjaxRes.setCanIUse(true);
+		}
+		return duplicateCheckAjaxRes;
+	}
+	
+	//-------------------Ajax--------------------
 }

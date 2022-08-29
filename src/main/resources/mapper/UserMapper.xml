@@ -5,4 +5,10 @@
 	<select id="selectOneForLogin" resultType="User">
 		select * from user where user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
+	<select id="selectOneById" resultType="User">
+		select * from user where user_id=#{user_id}
+	</select>
+	<select id="selectOneByEmail" resultType="User">
+		select * from user where user_email=#{user_email}
+	</select>
 </mapper>
