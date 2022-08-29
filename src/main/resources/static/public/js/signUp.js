@@ -46,6 +46,9 @@ async function totalValidation(){
 				pw_confirm_val=process(input,"비밀번호와 확인이 서로 다릅니다.", ()=>{return input.value==pwInput.value});
 			}else if(input.name=="user_email"){
 				email_val=process(input, "정확한 이메일 형식이 아닙니다.", ()=>{return EMAIL_REGEX.test(input.value)});
+				if(email_val){
+					email_val=process(input, "중복되는 이메일 입니다.", async ()=>{return await ajax("/user/emailAjax/"+input.value)});
+				}
 			}	
 		}
 	}
