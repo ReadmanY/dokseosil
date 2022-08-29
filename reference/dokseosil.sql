@@ -4,7 +4,7 @@ CREATE DATABASE READ_ROOM;
 
 DROP USER 'room_admin'@'localhost';
 CREATE USER 'room_admin'@'localhost' IDENTIFIED WITH mysql_native_password by 'group1';
-GRANT SELECT, INSERT, UPDATE, DELETE on READ_ROOM.* to 'room_admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE on SPRING_BOARD.* to 'room_admin'@'localhost';
 
 USE READ_ROOM;
 
@@ -13,15 +13,16 @@ CREATE TABLE USER(
     user_id VARCHAR(255),
 	user_name VARCHAR(255),
 	user_pw VARCHAR(255) NOT NULL,
-    user_email VARCHAR(255) NOT NULL,
-	user_phone VARCHAR(255), 
-	user_birth DATE, 
+	user_phone VARCHAR(255) NOT NULL,
+	user_email VARCHAR(255) NOT NULL,
+	user_birth DATE, #change to can null
     user_gender tinyint, #gender male=0, female=1, etc=2, nodata=null 
 	user_signuptime DATETIME DEFAULT CURRENT_TIMESTAMP(),
     is_admin BOOLEAN default false,
     branch_admin INT,
-	CONSTRAINT PRIMARY KEY(user_no),
-	CONSTRAINT UNIQUE KEY(user_id),
+	CONSTRAINT PRIMARY KEY(user_id),
+	CONSTRAINT UNIQUE KEY(user_no),
+	CONSTRAINT UNIQUE KEY(user_phone),
 	CONSTRAINT UNIQUE KEY(user_email)
 );
 
@@ -82,14 +83,12 @@ CREATE TABLE TICKET_SOLD(
     expire_date DATETIME,
     remain_days INT,
     CONSTRAINT PRIMARY KEY(sold_no),
-    FOREIGN KEY(sold_id) REFERENCES USER(user_id),
+    FOREIGN KEY(sole_id) REFERENCES USER(user_id),
     FOREIGN KEY(sold_ticket) REFERENCES TICKET(ticket_no),
     FOREIGN KEY(sold_branch) REFERENCES BRANCH(branch_no)	#BRANCH_NO 참조 추가
     ON UPDATE CASCADE ON DELETE CASCADE
-
 );
 
-
-insert into user(user_id, user_pw, user_email) values("ns02442","1234", "ns02442@naver.com");
-
-
+ALTER TABLE USER ADD FOREIGN KEY(user_ticket)
+REFERENCES TICKET_BUY(sold_no)
+ON UPDATE CASCADE ON DELETE CASCADE;
