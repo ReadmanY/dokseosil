@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap-5.2.0-dist/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/public/css/signUp.css}">
+<script th:src="@{/bootstrap-5.2.0-dist/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/public/js/signUp.js}" defer></script>
+</head>
+<body>
+	<h1 class="heading">Welcome!</h1>
+	<form class="container p-3" name="signUpForm" action="/user/signUp" method="post">
+	
+	<span class="badge bg-success mb-3">Required</span>
+		<div class="row required">
+			<div class="col form-floating mb-3">
+				<input id="userId" name="user_id" type="text" class="form-control" placeholder="ID 4자 이상" data-bs-toggle="popover" data-bs-placement="right" data-bs-trigger="manual">
+				<label for="userId">ID</label>
+			</div>
+		</div>
+		
+		<div class="row required">
+			<div class="col form-floating mb-3">
+				<input id="userPw" name="user_pw" type="password" class="form-control" placeholder="비밀번호" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="manual">
+				<label for="userPw">PW</label>
+			</div>
+			<div class="col form-floating mb-3">
+				<input id="userPw_confirm" type="password" class="form-control" placeholder="비밀번호 확인" data-bs-placement="right" data-bs-trigger="manual">
+				<label for="userPw_confirm">비밀번호 확인</label>
+			</div>
+		</div>
+		
+		<div class="row required">
+			<div class="col form-floating">
+				<input id="userEmail" name="user_email" type="text" class="form-control" placeholder="이메일 주소" data-bs-placement="right" data-bs-trigger="manual">
+				<label for="userEmail">이메일 주소</label>
+			</div>
+		</div>
+		
+		<hr class="my-3">
+		<span class="badge bg-secondary mb-3">Optional</span>
+		<div class="row">
+			<div class="col form-floating mb-3">
+				<input id="userName" name="user_name" type="text" class="form-control" placeholder="성명 혹은 닉네임">
+				<label for="userName">성명 혹은 닉네임</label>
+				
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col form-floating mb-3">
+				
+				<input id="userPhone" name="user_phone" type="text" class="form-control" placeholder="연락처">
+				<label for="userPhone">연락처</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col form-floating mb-3">
+				<input id="userBirth" name="user_birth" type="date" class="form-control" placeholder="생일">
+				<label for="userBirth">생일</label>	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col form-floating mb-3">
+				<select id="userGender" class="form-select" >
+	    			<option value="null" selected></option>
+	    			<option value="0">남성</option>
+	    			<option value="1">여성</option>
+	    			<option value="2">그 외</option>
+	  			</select>
+	  			<label for="userGender">Gender</label>
+	  			
+			</div>
+		</div>
+		<div class="row">
+			<div class="col d-flex justify-content-end buttons">
+				<button class="btn btn-success m-1" type="submit">등록</button>
+				<a class="btn btn-secondary m-1" href="/">취소</a>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>
