@@ -21,6 +21,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/ticket/ticketConfig">이용권(임시)</a>
       </ul>
+      <th:block th:unless="${session.loginUser==null}">
+     		<a href="#"
+     			class="btn btn-sm btn-outline-secondary">
+				<span th:text="${session.loginUser.user_name}"></span>
+				(<span th:text="${session.loginUser.user_id}"></span>)
+			</a> / 
+			<a href="/user/logout.do" class="btn btn-sm btn-danger">로그아웃</a>
+     	</th:block>
       
     </div>
   </div>

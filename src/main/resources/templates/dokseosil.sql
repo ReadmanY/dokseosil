@@ -87,9 +87,8 @@ CREATE TABLE TICKET_SOLD(
     FOREIGN KEY(sold_branch) REFERENCES BRANCH(branch_no)	#BRANCH_NO 참조 추가
     ON UPDATE CASCADE ON DELETE CASCADE
 );
-<<<<<<< HEAD
+
 
 insert into user(user_id, user_pw, user_email) values("ns02442","1234", "ns02442@naver.com");
 
-=======
->>>>>>> 445eb04420ac4b4925ef6cf599ffff4146c82156
+

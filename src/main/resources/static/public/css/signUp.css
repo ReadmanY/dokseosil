@@ -32,11 +32,15 @@ label{
 }
 
 .input-blank-error {
-	border-color: #19b9e7;
+	border: 3px solid #19b9e7;
 }
 
 .input-validation-error {
-	border-color: red;
+	border: 3px solid red;
+}
+
+.passValidation{
+	border: 3px solid yellowgreen;
 }
 
 

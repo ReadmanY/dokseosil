@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.acon.dokseo.dto.DuplicateCheckAjaxRes;
 import com.acon.dokseo.dto.User;
@@ -24,7 +25,7 @@ public class UserController {
 	
 	@GetMapping("/login")
 	public void login() {};
-	@PostMapping("/login")
+	@PostMapping("/login.do")
 	public String login(@ModelAttribute User user,HttpSession session) {
 		User loginUser=userMapper.selectOneForLogin(user.getUser_id(), user.getUser_pw());
 		if(loginUser!=null) {
@@ -36,8 +37,31 @@ public class UserController {
 		}
 	}
 	
+	@GetMapping("/logout.do")
+	public String logout(HttpSession session) {
+		if(session.getAttribute("loginUser")!=null) {
+			session.invalidate();
+		}
+		return "redirect:/";
+		
+	}
+	
 	@GetMapping("/signUp")
 	public void signUp() {};
+	
+	@PostMapping("/signUp.do")
+	public String signUp(@ModelAttribute User user,HttpSession session) {
+		int insert=0;
+		try {
+			insert=userMapper.insertOne(user);
+		} catch (Exception e) {e.printStackTrace();}
+		if(insert>0) {
+			session.setAttribute("msg", "회원가입에 성공했습니다. 로그인 해주세요.");
+			return "redirect:/";
+		}else {
+			return "redirect:/user/signUp";
+		}
+	}
 	
 	
 	

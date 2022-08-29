@@ -11,4 +11,9 @@
 	<select id="selectOneByEmail" resultType="User">
 		select * from user where user_email=#{user_email}
 	</select>
+	<insert id="insertOne">
+		insert into user
+			(user_id,user_name,user_pw,user_phone,user_email,user_birth) values
+			(#{user_id},#{user_name},#{user_pw},#{user_phone},#{user_email},#{user_birth})
+	</insert>
 </mapper>

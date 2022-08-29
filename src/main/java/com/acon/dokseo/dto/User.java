@@ -2,6 +2,8 @@ package com.acon.dokseo.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 /*
@@ -30,6 +32,7 @@ public class User {
 	private String user_pw;
 	private String user_phone;
 	private String user_email;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date user_birth;		
 	private	int user_gender;		// 0:남성, 1:여성, 2:그 외, null:무입력
 	private Date user_signuptime;
